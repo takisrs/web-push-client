@@ -1,5 +1,7 @@
 //https://github.com/web-push-libs/web-push-php
+const API_ENDPOINT = 'http://localhost:3000/subscriptions';
 const VAPID_PUBLIC_KEY = "BFHNL4huwkB2w7GnobFm4-3XpQEIOBFicySNAJ-M-P3ij4xhbrM7BXMyqo27ebCel5Bk7vgRmSS0dHKuGdJiiQE";
+const AUTHORIZATION_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhbm9zQGF0bmV0LmdyIiwidXNlcklkIjoiNWY1Y2I3MzQxNzI0NTk0YzcwYTdiNGIyIiwiaWF0IjoxNTk5OTEzNDIwLCJleHAiOjE1OTk5MTcwMjB9.m3WrloKXtr0INqZWMJjvFU7-0WxlmUawPnfAyNuO2wM";
 
 
 if ('serviceWorker' in navigator){
@@ -31,11 +33,11 @@ const makeSubscription = function() {
         }).then(function(subscription){
             if (subscription){
                 console.log(subscription);
-                fetch('http://localhost:3000/subscriptions', {
+                fetch(API_ENDPOINT, {
                     method: 'post',
                     headers: {
                       'Content-type': 'application/json',
-                      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRha2lzcGFkYXpAZ21haWwuY29tIiwidXNlcklkIjoiNWY1OTMzYTg5MThkYjk3MDdkNzY1ZmIwIiwiaWF0IjoxNTk5NjgzNTc4LCJleHAiOjE1OTk2ODcxNzh9.uROzKSQGQXsPSWOLlT1kBEQEfHCoUKqyVsLnkep6xK8'
+                      'Authorization': 'Bearer '+AUTHORIZATION_TOKEN
                     },
                     body: JSON.stringify({
                       subscription: subscription
