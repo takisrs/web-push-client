@@ -1,3 +1,5 @@
 # Web Push Notifications - Client side implementation
 
-** To be updated **
+A client-side sample implementation (subscription & service worker setup)
+
+to be updated...

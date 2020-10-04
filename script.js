@@ -1,7 +1,7 @@
 //https://github.com/web-push-libs/web-push-php
 const API_ENDPOINT = 'http://localhost:3000/subscriptions';
-const VAPID_PUBLIC_KEY = "BFHNL4huwkB2w7GnobFm4-3XpQEIOBFicySNAJ-M-P3ij4xhbrM7BXMyqo27ebCel5Bk7vgRmSS0dHKuGdJiiQE";
-const AUTHORIZATION_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhbm9zQGF0bmV0LmdyIiwidXNlcklkIjoiNWY1Y2I3MzQxNzI0NTk0YzcwYTdiNGIyIiwiaWF0IjoxNTk5OTEzNDIwLCJleHAiOjE1OTk5MTcwMjB9.m3WrloKXtr0INqZWMJjvFU7-0WxlmUawPnfAyNuO2wM";
+const VAPID_PUBLIC_KEY = "BF-yfKEFXSs6Fp7CTsufzqbWZTaEXlEGJSwSTiZQN5ZXifu7sa8MQe2BPVTDz4Ngnqmbn334usmvefRAqwxLRbY";
+const AUTHORIZATION_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRha2lzcGFkYXpAZ21haWwuY29tIiwidXNlcklkIjoiNWY3MjU1MzgyOTBlZDE5OTZlNDM4NTEzIiwiaWF0IjoxNjAxMzI4NTUyLCJleHAiOjE2MDEzMzIxNTJ9.sfNGk1btJgKkM0Uks_o_2QRXFbVr6nI5r1OMzokMTMU";
 
 
 if ('serviceWorker' in navigator){
