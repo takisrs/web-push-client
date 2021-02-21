@@ -1,7 +1,6 @@
-//https://github.com/web-push-libs/web-push-php
 const API_ENDPOINT = 'http://localhost:3000/subscriptions';
-const VAPID_PUBLIC_KEY = "BF-yfKEFXSs6Fp7CTsufzqbWZTaEXlEGJSwSTiZQN5ZXifu7sa8MQe2BPVTDz4Ngnqmbn334usmvefRAqwxLRbY";
-const AUTHORIZATION_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRha2lzcGFkYXpAZ21haWwuY29tIiwidXNlcklkIjoiNWY3MjU1MzgyOTBlZDE5OTZlNDM4NTEzIiwiaWF0IjoxNjAxMzI4NTUyLCJleHAiOjE2MDEzMzIxNTJ9.sfNGk1btJgKkM0Uks_o_2QRXFbVr6nI5r1OMzokMTMU";
+const VAPID_PUBLIC_KEY = 'BMdweadVIDiDe_3m9VdnI6nqG8bmnBNso2zHgip-LF4f_oMDPGJ27uBl8-YQW2QlIUz5GoTYedsD-68V4cE2AkI';
+const USER_ID = "5f5cb7341724594c70a7b4b2";
 
 
 if ('serviceWorker' in navigator){
@@ -36,11 +35,11 @@ const makeSubscription = function() {
                 fetch(API_ENDPOINT, {
                     method: 'post',
                     headers: {
-                      'Content-type': 'application/json',
-                      'Authorization': 'Bearer '+AUTHORIZATION_TOKEN
+                      'Content-type': 'application/json'
                     },
                     body: JSON.stringify({
-                      subscription: subscription
+                      subscription: subscription,
+                      userId: USER_ID
                     }),
                 }).then(function(response){
                     if (response.ok)
@@ -110,4 +109,25 @@ if ('Notification' in window){
 } else {
     const enableNotificationsBtn = document.getElementById('enable-notifications');
     enableNotificationsBtn.style.display = 'none';
+}
+
+
+/**
+ * Converts a base64 string to a Uint8Array
+ * @param {string} base64String a public vapid key
+ * @returns {Uint8Array}
+ */
+function urlBase64ToUint8Array(base64String) {
+    var padding = '='.repeat((4 - base64String.length % 4) % 4);
+    var base64 = (base64String + padding)
+        .replace(/\-/g, '+')
+        .replace(/_/g, '/');
+
+    var rawData = window.atob(base64);
+    var outputArray = new Uint8Array(rawData.length);
+
+    for (var i = 0; i < rawData.length; ++i) {
+        outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
 }
