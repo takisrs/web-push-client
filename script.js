@@ -1,6 +1,6 @@
 const API_ENDPOINT = 'http://localhost:3000/subscriptions';
-const VAPID_PUBLIC_KEY = 'BMdweadVIDiDe_3m9VdnI6nqG8bmnBNso2zHgip-LF4f_oMDPGJ27uBl8-YQW2QlIUz5GoTYedsD-68V4cE2AkI';
-const USER_ID = "5f5cb7341724594c70a7b4b2";
+const VAPID_PUBLIC_KEY = 'BF-yfKEFXSs6Fp7CTsufzqbWZTaEXlEGJSwSTiZQN5ZXifu7sa8MQe2BPVTDz4Ngnqmbn334usmvefRAqwxLRbY';
+const USER_ID = "5f725538290ed1996e438513";
 
 
 if ('serviceWorker' in navigator){
