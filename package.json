@@ -4,7 +4,8 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "start": "node init-server.js"
+    "start": "node init-server.js",
+    "build": "mkdir dist && cp index.html dist/ && cp script.js dist/ && cp sw.js dist/ && cp tools.js dist/ && cp -r images/ dist/"
   },
   "author": "",
   "license": "ISC",
